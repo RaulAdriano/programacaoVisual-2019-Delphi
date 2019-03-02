@@ -20,6 +20,7 @@ object FAula01: TFAula01
     Top = 8
     Width = 297
     Height = 43
+    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -29
@@ -42,8 +43,9 @@ object FAula01: TFAula01
     ParentFont = False
     TabOrder = 1
     OnClick = B1Click
+    OnKeyDown = B1KeyDown
   end
-  object Button1: TButton
+  object B2: TButton
     Left = 72
     Top = 63
     Width = 50

@@ -10,7 +10,7 @@ type
   TFAula01 = class(TForm)
     EResultado: TEdit;
     B1: TButton;
-    Button1: TButton;
+    B2: TButton;
     B3: TButton;
     B4: TButton;
     B6: TButton;
@@ -37,6 +37,7 @@ type
     procedure BLimparClick(Sender: TObject);
     procedure BIgualClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure B1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -55,6 +56,49 @@ implementation
 procedure TFAula01.B1Click(Sender: TObject);
 begin
   EResultado.Text := EResultado.Text + (Sender as TButton).Caption;
+end;
+
+procedure TFAula01.B1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+  //ShowMessage('O nº da tecla: '+Char(ORD(Key))+' é => '+IntToStr(key));
+  if (Key = VK_NUMPAD1) then
+    B1.Click;
+  if (Key = VK_NUMPAD2) then
+      B2.Click;
+  if (Key = VK_NUMPAD3) then
+      B3.Click;
+  if (Key = VK_NUMPAD4) then
+      B4.Click;
+  if (Key = VK_NUMPAD5) then
+      B5.Click;
+  if (Key = VK_NUMPAD6) then
+      B6.Click;
+  if (Key = VK_NUMPAD7) then
+      B7.Click;
+  if (Key = VK_NUMPAD8) then
+      B8.Click;
+  if (Key = VK_NUMPAD9) then
+      B9.Click;
+  if (Key = VK_NUMPAD0) then
+      B0.Click;
+  if (Key = VK_ADD) then
+      BMais.Click;
+  if (Key = VK_SUBTRACT) then
+      BMenos.Click;
+  if (Key = VK_MULTIPLY) then
+      BMult.Click;
+  if (Key = VK_DIVIDE) then
+      BDiv.Click;
+  if (Key = VK_RETURN) then
+      BIgual.Click;
+  if (Key = VK_DECIMAL) then
+      BVirgula.Click;
+  if (Key = VK_DELETE) then
+      BLimpar.Click;
+
+
 end;
 
 procedure TFAula01.BDivClick(Sender: TObject);
@@ -96,6 +140,7 @@ begin
            r := valor1 / valor2
          else
           showmessage('divisao por zero!');
+          r:=0;
       end;
     4:
       begin
