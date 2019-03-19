@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/03/13 20:27:01.000.476,=D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\Unit1.pas</Transaction>
+    <Transaction>2019/03/13 20:27:43.000.896,D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\Unit1.dfm=D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\UFBancoDados.dfm</Transaction>
+    <Transaction>2019/03/13 20:27:43.000.896,D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\Unit1.pas=D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\UFBancoDados.pas</Transaction>
+    <Transaction>2019/03/13 20:27:59.000.052,D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\Project1.dproj=D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\PBanco.dproj</Transaction>
+    <Transaction>2019/03/13 20:28:10.000.021,=D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\Unit1.pas</Transaction>
+    <Transaction>2019/03/13 20:28:40.000.811,D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\Unit1.dfm=D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\UConexao.dfm</Transaction>
+    <Transaction>2019/03/13 20:28:40.000.811,D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\Unit1.pas=D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\UConexao.pas</Transaction>
+    <Transaction>2019/03/18 22:10:49.144,=D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\Unit1.pas</Transaction>
+    <Transaction>2019/03/18 22:11:43.069,D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\UCadAluno.dfm=D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2019/03/18 22:11:43.069,D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\UCadAluno.pas=D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\programacaoVisual-2019-Delphi\Aula02\Fontes\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

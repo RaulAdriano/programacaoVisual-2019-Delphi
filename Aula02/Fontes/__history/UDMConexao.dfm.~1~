@@ -1,0 +1,5 @@
+object DMConexao1: TDMConexao1
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+end

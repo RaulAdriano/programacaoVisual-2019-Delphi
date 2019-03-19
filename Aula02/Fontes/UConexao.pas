@@ -3,11 +3,22 @@ unit UConexao;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
+  FireDAC.Phys.PGDef, FireDAC.Phys.PG, Data.DB, FireDAC.Comp.Client,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet;
 
 type
-  TForm1 = class(TForm)
+  TDMConexao = class(TDataModule)
+    FDConexao: TFDConnection;
+    FDDriver: TFDPhysPgDriverLink;
+    FDQAlunos: TFDQuery;
+    DSAlunos: TDataSource;
+    FDQAlunosid: TIntegerField;
+    FDQAlunosnome: TWideStringField;
+    FDQAlunosdataNasc: TDateField;
   private
     { Private declarations }
   public
@@ -15,9 +26,11 @@ type
   end;
 
 var
-  Form1: TForm1;
+  DMConexao: TDMConexao;
 
 implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
 

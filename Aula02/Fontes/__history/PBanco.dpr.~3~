@@ -1,0 +1,18 @@
+program PBanco;
+
+uses
+  Vcl.Forms,
+  UFBancoDados in 'UFBancoDados.pas' {FBancoDados},
+  UConexao in 'UConexao.pas' {DMConexao: TDataModule},
+  UCadAluno in 'UCadAluno.pas' {Form1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFBancoDados, FBancoDados);
+  Application.CreateForm(TDMConexao, DMConexao);
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

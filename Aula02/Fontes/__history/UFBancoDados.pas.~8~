@@ -1,0 +1,94 @@
+unit UFBancoDados;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Data.DB,
+  Vcl.Grids, Vcl.DBGrids, Vcl.Buttons;
+
+type
+  TFBancoDados = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Portalb: TLabel;
+    EDPorta: TEdit;
+    EDServidor: TEdit;
+    Panel2: TPanel;
+    Label3: TLabel;
+    EDUser: TEdit;
+    Label4: TLabel;
+    EDSenha: TEdit;
+    Label5: TLabel;
+    EDBanco: TEdit;
+    Panel3: TPanel;
+    BTConectar: TBitBtn;
+    BTDesconectar: TBitBtn;
+    LBStatus: TLabel;
+    Panel4: TPanel;
+    EDPesquisa: TEdit;
+    BTBuscar: TBitBtn;
+    DBGAlunos: TDBGrid;
+    procedure BTBuscarClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BTDesconectarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FBancoDados: TFBancoDados;
+
+implementation
+
+{$R *.dfm}
+
+uses UConexao;
+
+procedure TFBancoDados.BTBuscarClick(Sender: TObject);
+begin
+  {
+  DMConexao.FDQAlunos.Close;
+  DMConexao.FDQAlunos.SQL.Clear;
+  DMConexao.FDQAlunos.SQL.Add(EDPesquisa.Text);
+  DMConexao.FDQAlunos.Open();
+  }
+
+  DMConexao.FDQAlunos.Open(EDPesquisa.Text);
+
+end;
+
+procedure TFBancoDados.BTDesconectarClick(Sender: TObject);
+begin
+    with DMConexao do
+    begin
+      FDConexao.Connected := False;
+      LBStatus.Caption := ' Desconectado';
+      LBStatus.Color := clRed;
+      BTDesconectar.Enabled:= false;
+      BTConectar.Enabled:= true;
+      EDPesquisa.Enabled := false;
+    end;
+end;
+
+procedure TFBancoDados.FormActivate(Sender: TObject);
+begin
+    EDServidor.Text :='localhost';
+    EDPorta.Text := '5432';
+    EDBanco.Text := 'aula02';
+    EDUser.Text:= 'postgres';
+    EDSenha.Text :='root';
+    BTDesconectar.Enabled := false;
+    EDPesquisa.Enabled := False;
+
+end;
+
+procedure TFBancoDados.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    DMConexao.FDConexao.Connected := false;
+end;
+
+end.

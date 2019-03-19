@@ -1,0 +1,25 @@
+unit UDMConexao;
+
+interface
+
+uses
+  System.SysUtils, System.Classes;
+
+type
+  TDMConexao1 = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DMConexao1: TDMConexao1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

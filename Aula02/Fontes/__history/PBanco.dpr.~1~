@@ -1,0 +1,14 @@
+program PBanco;
+
+uses
+  Vcl.Forms,
+  UFBancoDados in 'UFBancoDados.pas' {FBancoDados};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFBancoDados, FBancoDados);
+  Application.Run;
+end.
