@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ComCtrls, Data.DB, Vcl.Buttons, Vcl.Grids, Vcl.DBGrids;
 
 type
   TFCadAluno = class(TForm)
@@ -14,10 +15,25 @@ type
     DBEdit2: TDBEdit;
     Label3: TLabel;
     DBEdit3: TDBEdit;
-    Button1: TButton;
-    Button2: TButton;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+    BtNovo: TButton;
+    BtSalvar: TButton;
+    PCAlunos: TPageControl;
+    TCadastro: TTabSheet;
+    TConsulta: TTabSheet;
+    BtEditar: TButton;
+    BtCancelar: TButton;
+    BtExcluir: TButton;
+    DBGAlunos: TDBGrid;
+    EPesquisar: TEdit;
+    BPesquisar: TBitBtn;
+    procedure BtNovoClick(Sender: TObject);
+    procedure BtSalvarClick(Sender: TObject);
+    procedure BtEditarClick(Sender: TObject);
+    procedure BtExcluirClick(Sender: TObject);
+    procedure BtCancelarClick(Sender: TObject);
+    procedure BPesquisarClick(Sender: TObject);
+    procedure DBGAlunosDblClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,15 +49,56 @@ implementation
 
 uses UConexao;
 
-procedure TFCadAluno.Button1Click(Sender: TObject);
+procedure TFCadAluno.BPesquisarClick(Sender: TObject);
+begin
+  with DMConexao do
+  begin
+      FDQAlunos.Close;
+      FDQAlunos.SQL.Clear;
+      FDQAlunos.SQL.Add('select * from aluno where nome like :PNome');
+     // FDQAlunos.ParamByName('PNome').AsString := EPesquisar.Text;          // especificando o tipo do valor recebido
+      FDQAlunos.ParamByName('PNome').AsString := '%' + EPesquisar.Text + '%';
+      FDQAlunos.Open();
+  end;
+end;
+
+procedure TFCadAluno.BtCancelarClick(Sender: TObject);
+begin
+  DMConexao.FDQAlunos.Cancel;
+end;
+
+procedure TFCadAluno.BtEditarClick(Sender: TObject);
+begin
+     DMConexao.FDQAlunos.Edit;
+end;
+
+procedure TFCadAluno.BtExcluirClick(Sender: TObject);
+begin
+  DMConexao.FDQAlunos.Delete;
+end;
+
+procedure TFCadAluno.BtNovoClick(Sender: TObject);
 begin
   DMConexao.FDQAlunos.Insert;
 
 end;
 
-procedure TFCadAluno.Button2Click(Sender: TObject);
+procedure TFCadAluno.BtSalvarClick(Sender: TObject);
 begin
   DMConexao.FDQAlunos.Post;
+end;
+
+
+
+procedure TFCadAluno.DBGAlunosDblClick(Sender: TObject);
+begin
+    PCAlunos.ActivePage := TCadastro;
+end;
+
+procedure TFCadAluno.FormActivate(Sender: TObject);
+begin
+  DMConexao.FDQAlunos.Open('select * from aluno');
+  PCAlunos.ActivePage := TCadastro;
 end;
 
 end.

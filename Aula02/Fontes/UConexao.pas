@@ -19,6 +19,11 @@ type
     FDQAlunosid: TIntegerField;
     FDQAlunosnome: TWideStringField;
     FDQAlunosdataNasc: TDateField;
+    FDQAlunoscpf: TWideStringField;
+    FDQAlunosfone: TWideStringField;
+    FDQAlunoscel: TWideStringField;
+    FDQAlunoscep: TWideStringField;
+    procedure DSAlunosStateChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,6 +37,20 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
+uses UCadAluno;
+
 {$R *.dfm}
+
+procedure TDMConexao.DSAlunosStateChange(Sender: TObject);
+begin
+  with FCadAluno do
+  begin
+      BtNovo.Enabled := DSAlunos.State in [dsBrowse];
+      BtSalvar.Enabled := DSAlunos.State in [dsInsert , dsEdit];
+      BtCancelar.Enabled := BtSalvar.Enabled;
+      BtEditar.Enabled := (BtNovo.Enabled) and (not(FDQAlunos.IsEmpty));
+      BtExcluir.Enabled := BtEditar.Enabled;
+  end;
+end;
 
 end.

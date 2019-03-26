@@ -39,9 +39,30 @@ object DMConexao: TDMConexao
       FieldName = 'dataNasc'
       Origin = '"dataNasc"'
     end
+    object FDQAlunoscpf: TWideStringField
+      FieldName = 'cpf'
+      Origin = 'cpf'
+      Size = 15
+    end
+    object FDQAlunosfone: TWideStringField
+      FieldName = 'fone'
+      Origin = 'fone'
+      Size = 15
+    end
+    object FDQAlunoscel: TWideStringField
+      FieldName = 'cel'
+      Origin = 'cel'
+      Size = 15
+    end
+    object FDQAlunoscep: TWideStringField
+      FieldName = 'cep'
+      Origin = 'cep'
+      Size = 9
+    end
   end
   object DSAlunos: TDataSource
     DataSet = FDQAlunos
+    OnStateChange = DSAlunosStateChange
     Left = 128
     Top = 96
   end
