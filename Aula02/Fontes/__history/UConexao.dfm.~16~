@@ -1,0 +1,124 @@
+object DMConexao: TDMConexao
+  OldCreateOrder = False
+  Height = 354
+  Width = 456
+  object FDConexao: TFDConnection
+    Params.Strings = (
+      'Database=aula02'
+      'User_Name=postgres'
+      'Password=root'
+      'Server=localhost'
+      'DriverID=PG')
+    Connected = True
+    Left = 32
+    Top = 16
+  end
+  object FDDriver: TFDPhysPgDriverLink
+    VendorHome = 
+      'D:\BACKUP\Faculdade\DPS\PROGRAMACAO VISUAL - LEANDRO\PROJETOS\pr' +
+      'ogramacaoVisual-2019-Delphi\Aula02\Fontes\Win32\Debug'
+    Left = 112
+    Top = 16
+  end
+  object FDQAlunos: TFDQuery
+    Connection = FDConexao
+    SQL.Strings = (
+      'Select * from aluno')
+    Left = 32
+    Top = 88
+    object FDQAlunosid: TIntegerField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object FDQAlunosnome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 100
+    end
+    object FDQAlunosdataNasc: TDateField
+      FieldName = 'dataNasc'
+      Origin = '"dataNasc"'
+    end
+    object FDQAlunoscpf: TWideStringField
+      FieldName = 'cpf'
+      Origin = 'cpf'
+      EditMask = '000.000.000-00;1;_'
+      Size = 15
+    end
+    object FDQAlunosfone: TWideStringField
+      FieldName = 'fone'
+      Origin = 'fone'
+      EditMask = '(00) 0000-0000;1;_'
+      Size = 15
+    end
+    object FDQAlunoscel: TWideStringField
+      FieldName = 'cel'
+      Origin = 'cel'
+      EditMask = '(00) \90000-0000;1;_'
+      Size = 15
+    end
+    object FDQAlunoscep: TWideStringField
+      FieldName = 'cep'
+      Origin = 'cep'
+      EditMask = '00000-000;1;_'
+      Size = 9
+    end
+  end
+  object DSAlunos: TDataSource
+    DataSet = FDQAlunos
+    OnStateChange = DSAlunosStateChange
+    Left = 104
+    Top = 88
+  end
+  object FDQCidade: TFDQuery
+    Connection = FDConexao
+    SQL.Strings = (
+      'select * from cidade')
+    Left = 32
+    Top = 152
+    object FDQCidadeid_cidade: TIntegerField
+      FieldName = 'id_cidade'
+      Origin = 'id_cidade'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object FDQCidadeid_estado: TIntegerField
+      FieldName = 'id_estado'
+      Origin = 'id_estado'
+    end
+    object FDQCidadenome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 8190
+    end
+  end
+  object DSCidades: TDataSource
+    Left = 104
+    Top = 152
+  end
+  object FDQEstado: TFDQuery
+    Connection = FDConexao
+    SQL.Strings = (
+      'select * from estado')
+    Left = 32
+    Top = 208
+    object FDQEstadoid: TIntegerField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object FDQEstadosigla_uf: TWideStringField
+      FieldName = 'sigla_uf'
+      Origin = 'sigla_uf'
+      Size = 2
+    end
+    object FDQEstadonome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 15
+    end
+  end
+  object DSEstado: TDataSource
+    Left = 104
+    Top = 208
+  end
+end

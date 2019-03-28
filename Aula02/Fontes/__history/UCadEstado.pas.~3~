@@ -1,0 +1,43 @@
+unit UCadEstado;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Data.DB, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.Grids, Vcl.DBGrids, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TFCadEstado = class(TForm)
+    PCadastro: TPageControl;
+    Cadastro: TTabSheet;
+    Consulta: TTabSheet;
+    DBGAlunos: TDBGrid;
+    EPesquisar: TEdit;
+    BPesquisar: TBitBtn;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    DataSource1: TDataSource;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    BtEditar: TButton;
+    BtNovo: TButton;
+    BtSalvar: TButton;
+    BtCancelar: TButton;
+    BtExcluir: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FCadEstado: TFCadEstado;
+
+implementation
+
+{$R *.dfm}
+
+end.

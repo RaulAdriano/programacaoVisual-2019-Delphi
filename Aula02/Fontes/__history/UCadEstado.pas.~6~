@@ -1,0 +1,77 @@
+unit UCadEstado;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Data.DB, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.Grids, Vcl.DBGrids, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TFCadEstado = class(TForm)
+    PCadastro: TPageControl;
+    Cadastro: TTabSheet;
+    Consulta: TTabSheet;
+    DBGAlunos: TDBGrid;
+    EPesquisar: TEdit;
+    BPesquisar: TBitBtn;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    DataSource1: TDataSource;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    BtEditar: TButton;
+    BtNovo: TButton;
+    BtSalvar: TButton;
+    BtCancelar: TButton;
+    BtExcluir: TButton;
+    procedure BPesquisarClick(Sender: TObject);
+    procedure BtNovoClick(Sender: TObject);
+    procedure BtEditarClick(Sender: TObject);
+    procedure BtSalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FCadEstado: TFCadEstado;
+
+implementation
+
+{$R *.dfm}
+
+uses UConexao;
+
+procedure TFCadEstado.BPesquisarClick(Sender: TObject);
+begin
+   with DMConexao do
+  begin
+      FDQEstado.Close;
+      FDQEstado.SQL.Clear;
+      FDQEstado.SQL.Add('select * from estado where nome like :PEstado');
+     // FDQAlunos.ParamByName('PNome').AsString := EPesquisar.Text;          // especificando o tipo do valor recebido
+      FDQEstado.ParamByName('PEstado').AsString := '%' + EPesquisar.Text + '%';
+      FDQEstado.Open();
+  end;
+end;
+
+procedure TFCadEstado.BtEditarClick(Sender: TObject);
+begin
+    DMConexao.FDQAlunos.Edit;
+end;
+
+procedure TFCadEstado.BtNovoClick(Sender: TObject);
+begin
+    DMConexao.FDQAlunos.Insert;
+end;
+
+procedure TFCadEstado.BtSalvarClick(Sender: TObject);
+begin
+    DMConexao.FDQAlunos.Post;
+end;
+
+end.

@@ -1,0 +1,153 @@
+object FCadCidade: TFCadCidade
+  Left = 0
+  Top = 0
+  Caption = 'CIDADE'
+  ClientHeight = 661
+  ClientWidth = 681
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 681
+    Height = 661
+    ActivePage = Cadastro
+    Align = alClient
+    TabOrder = 0
+    object Cadastro: TTabSheet
+      Caption = 'Cadastro'
+      object Label1: TLabel
+        Left = 16
+        Top = 24
+        Width = 45
+        Height = 13
+        Caption = 'id_cidade'
+        FocusControl = DBEdit1
+      end
+      object Label2: TLabel
+        Left = 16
+        Top = 64
+        Width = 47
+        Height = 13
+        Caption = 'id_estado'
+        FocusControl = DBEdit2
+      end
+      object Label3: TLabel
+        Left = 16
+        Top = 104
+        Width = 26
+        Height = 13
+        Caption = 'nome'
+        FocusControl = DBEdit3
+      end
+      object DBEdit1: TDBEdit
+        Left = 16
+        Top = 40
+        Width = 134
+        Height = 21
+        DataField = 'id_cidade'
+        TabOrder = 0
+      end
+      object DBEdit2: TDBEdit
+        Left = 16
+        Top = 80
+        Width = 134
+        Height = 21
+        DataField = 'id_estado'
+        TabOrder = 1
+      end
+      object DBEdit3: TDBEdit
+        Left = 16
+        Top = 123
+        Width = 600
+        Height = 21
+        DataField = 'nome'
+        TabOrder = 2
+      end
+      object BtEditar: TButton
+        Left = 147
+        Top = 216
+        Width = 75
+        Height = 25
+        Caption = 'Editar'
+        TabOrder = 3
+        OnClick = BtEditarClick
+      end
+      object BtNovo: TButton
+        Left = 32
+        Top = 216
+        Width = 75
+        Height = 25
+        Caption = 'Novo'
+        TabOrder = 4
+        OnClick = BtNovoClick
+      end
+      object BtSalvar: TButton
+        Left = 263
+        Top = 216
+        Width = 75
+        Height = 25
+        Caption = 'Salvar'
+        TabOrder = 5
+        OnClick = BtSalvarClick
+      end
+      object BtCancelar: TButton
+        Left = 378
+        Top = 216
+        Width = 75
+        Height = 25
+        Caption = 'Cancelar'
+        TabOrder = 6
+      end
+      object BtExcluir: TButton
+        Left = 494
+        Top = 216
+        Width = 75
+        Height = 25
+        Caption = 'Excluir'
+        TabOrder = 7
+      end
+    end
+    object Consulta: TTabSheet
+      Caption = 'Consulta'
+      ImageIndex = 1
+      object BPesquisar: TBitBtn
+        Left = 427
+        Top = 14
+        Width = 230
+        Height = 25
+        Caption = 'Executar'
+        TabOrder = 0
+        OnClick = BPesquisarClick
+      end
+      object EPesquisar: TEdit
+        Left = 16
+        Top = 18
+        Width = 405
+        Height = 21
+        TabOrder = 1
+      end
+      object DBGAlunos: TDBGrid
+        Left = 16
+        Top = 45
+        Width = 641
+        Height = 576
+        DataSource = DMConexao.DSCidades
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        TabOrder = 2
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+    end
+  end
+end

@@ -23,7 +23,19 @@ type
     FDQAlunosfone: TWideStringField;
     FDQAlunoscel: TWideStringField;
     FDQAlunoscep: TWideStringField;
+    FDQCidade: TFDQuery;
+    DSCidades: TDataSource;
+    FDQEstado: TFDQuery;
+    DSEstado: TDataSource;
+    FDQCidadeid_cidade: TIntegerField;
+    FDQCidadeid_estado: TIntegerField;
+    FDQCidadenome: TWideStringField;
+    FDQEstadoid: TIntegerField;
+    FDQEstadosigla_uf: TWideStringField;
+    FDQEstadonome: TWideStringField;
     procedure DSAlunosStateChange(Sender: TObject);
+    procedure DSCidadesStateChange(Sender: TObject);
+    procedure DSEstadoStateChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,7 +49,7 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses UCadAluno;
+uses UCadAluno, UCadEstado, UCadCidade;
 
 {$R *.dfm}
 
@@ -49,6 +61,30 @@ begin
       BtSalvar.Enabled := DSAlunos.State in [dsInsert , dsEdit];
       BtCancelar.Enabled := BtSalvar.Enabled;
       BtEditar.Enabled := (BtNovo.Enabled) and (not(FDQAlunos.IsEmpty));
+      BtExcluir.Enabled := BtEditar.Enabled;
+  end;
+end;
+
+procedure TDMConexao.DSCidadesStateChange(Sender: TObject);
+begin
+   with FCadCidade do
+  begin
+      BtNovo.Enabled := DSCidades.State in [dsBrowse];
+      BtSalvar.Enabled := DSCidades.State in [dsInsert , dsEdit];
+      BtCancelar.Enabled := BtSalvar.Enabled;
+      BtEditar.Enabled := (BtNovo.Enabled) and (not(FDQCidade.IsEmpty));
+      BtExcluir.Enabled := BtEditar.Enabled;
+  end;
+end;
+
+procedure TDMConexao.DSEstadoStateChange(Sender: TObject);
+begin
+   with FCadEstado do
+  begin
+      BtNovo.Enabled := DSEstado.State in [dsBrowse];
+      BtSalvar.Enabled := DSEstado.State in [dsInsert , dsEdit];
+      BtCancelar.Enabled := BtSalvar.Enabled;
+      BtEditar.Enabled := (BtNovo.Enabled) and (not(FDQEstado.IsEmpty));
       BtExcluir.Enabled := BtEditar.Enabled;
   end;
 end;

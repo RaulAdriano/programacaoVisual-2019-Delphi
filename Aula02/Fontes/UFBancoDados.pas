@@ -31,12 +31,16 @@ type
     DBGAlunos: TDBGrid;
     DBNavigator1: TDBNavigator;
     BTCadAluno: TButton;
+    Button1: TButton;
+    Button2: TButton;
     procedure BTBuscarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BTDesconectarClick(Sender: TObject);
     procedure BTConectarClick(Sender: TObject);
     procedure BTCadAlunoClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,7 +54,7 @@ implementation
 
 {$R *.dfm}
 
-uses UConexao, UCadAluno;
+uses UConexao, UCadAluno, UCadCidade, UCadEstado;
 
 procedure TFBancoDados.BTBuscarClick(Sender: TObject);
 begin
@@ -104,6 +108,16 @@ begin
       BTConectar.Enabled:= true;
       EDPesquisa.Enabled := false;
     end;
+end;
+
+procedure TFBancoDados.Button1Click(Sender: TObject);
+begin
+  FCadCidade.Show;
+end;
+
+procedure TFBancoDados.Button2Click(Sender: TObject);
+begin
+  FCadEstado.Show;
 end;
 
 procedure TFBancoDados.FormClose(Sender: TObject; var Action: TCloseAction);

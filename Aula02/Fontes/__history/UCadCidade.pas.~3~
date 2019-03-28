@@ -1,0 +1,43 @@
+unit UCadCidade;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.ComCtrls, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TFCadCidade = class(TForm)
+    PageControl1: TPageControl;
+    Cadastro: TTabSheet;
+    Consulta: TTabSheet;
+    BPesquisar: TBitBtn;
+    EPesquisar: TEdit;
+    DBGAlunos: TDBGrid;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    DataSource1: TDataSource;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    BtEditar: TButton;
+    BtNovo: TButton;
+    BtSalvar: TButton;
+    BtCancelar: TButton;
+    BtExcluir: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FCadCidade: TFCadCidade;
+
+implementation
+
+{$R *.dfm}
+
+end.
